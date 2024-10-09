@@ -6,8 +6,9 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
-            color: #ffffff;
+            background: url("../pics/5571037.jpg") no-repeat center;
+            background-size: cover;
+            color: #000000;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -44,15 +45,17 @@
         }
 
         .table-custom {
-            background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+            background-color: rgba(255, 255, 255, 0.1); /* Darker background for better contrast */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 100px 50px 15px rgba(0, 0, 0, 0.5);
             overflow-x: auto; /* Ensures table is responsive */
+            border: 2px solid #e4fbff;
+            backdrop-filter: blur(5px);
         }
 
         .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter row color */
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly lighter row color */
         }
 
         .table-striped td, .table-striped th {

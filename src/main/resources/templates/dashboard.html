@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dashboard - Goldencat Bank</title>
+    <title>Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
-            color: #ffffff;
+            background: url("../pics/5571037.jpg") no-repeat center;
+            background-size: cover;
+            color: #000000;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -37,6 +38,10 @@
             max-width: 1000px;
             margin-top: 50px;
             text-align: center;
+            border: 2px solid #e4fbff;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+
         }
 
         h2, h3 {
@@ -71,7 +76,7 @@
         }
 
         .account-details {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.3);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 100px 50px 10px rgba(0, 0, 0, 0.1);
@@ -81,6 +86,7 @@
         .error {
             color: #ff4c4c;
         }
+
         .success {
             color: greenyellow;
         }
@@ -109,11 +115,21 @@
         }
 
         @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
@@ -136,21 +152,23 @@
     <!-- Account Details Section -->
     <div class="account-details">
         <h4>Account Details</h4>
-        <p><strong>Account Number:</strong> <span th:text="${account.id}"></span></p> <!-- Use account.id for account number -->
+        <p><strong>Account Number:</strong> <span th:text="${account.id}"></span></p>
+        <!-- Use account.id for account number -->
         <p><strong>Account Type:</strong> Savings</p>
     </div>
 
     <div class="row justify-content-center">
         <!-- Deposit Section -->
         <div class="col-md-3">
-            <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#depositForm" aria-expanded="false" aria-controls="depositForm">
+            <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#depositForm"
+                    aria-expanded="false" aria-controls="depositForm">
                 Deposit
             </button>
             <div class="collapse mt-3" id="depositForm">
                 <form method="post" action="/deposit" class="form-container">
                     <div class="form-group">
                         <label>Amount:</label>
-                        <input type="number" class="form-control" name="amount" required />
+                        <input type="number" class="form-control" name="amount" required/>
                     </div>
                     <button type="submit" class="btn btn-block btn-success">Submit</button>
                 </form>
@@ -159,14 +177,15 @@
 
         <!-- Withdraw Section -->
         <div class="col-md-3">
-            <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#withdrawForm" aria-expanded="false" aria-controls="withdrawForm">
+            <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#withdrawForm"
+                    aria-expanded="false" aria-controls="withdrawForm">
                 Withdraw
             </button>
             <div class="collapse mt-3" id="withdrawForm">
                 <form method="post" action="/withdraw" class="form-container">
                     <div class="form-group">
                         <label>Amount:</label>
-                        <input type="number" class="form-control" name="amount" required />
+                        <input type="number" class="form-control" name="amount" required/>
                     </div>
                     <button type="submit" class="btn btn-block btn-success">Submit</button>
                 </form>
@@ -175,18 +194,19 @@
 
         <!-- Transfer Section -->
         <div class="col-md-3">
-            <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#transferForm" aria-expanded="false" aria-controls="transferForm">
+            <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#transferForm"
+                    aria-expanded="false" aria-controls="transferForm">
                 Transfer Money
             </button>
             <div class="collapse mt-3" id="transferForm">
                 <form method="post" action="/transfer" class="form-container">
                     <div class="form-group">
                         <label>Recipient Username:</label>
-                        <input type="text" class="form-control" name="toUsername" required />
+                        <input type="text" class="form-control" name="toUsername" required/>
                     </div>
                     <div class="form-group">
                         <label>Amount:</label>
-                        <input type="number" class="form-control" name="amount" required />
+                        <input type="number" class="form-control" name="amount" required/>
                     </div>
                     <button type="submit" class="btn btn-block btn-success">Submit</button>
                 </form>
@@ -194,9 +214,15 @@
         </div>
     </div>
 
-    <p th:if="${error == 'Amount must be greater than zero' || error == 'Insufficient balance'}" th:text="${error}" class="error text-center mt-3"></p>
+    <p th:if="${error == 'Amount must be greater than zero' || error == 'Insufficient balance'}" th:text="${error}"
+       class="error text-center mt-3"></p>
     <p th:if="${error == 'Successfully deposited'}" th:text="${error}" class="success text-center mt-3"></p>
 </div>
+
+<footer class="footer">
+    <p>&copy; Viktor Lazarov. Demo Project. | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
+    Image by <a class="custom-link" href="https://www.freepik.com/free-vector/luxurious-background-with-golden-details_15292417.htm#page=5&query=elegant%20background&position=30&from_view=keyword&track=ais_hybrid&uuid=77f28b61-d964-4a40-a8cb-86ac776022f9">Freepik</a>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
