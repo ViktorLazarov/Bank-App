@@ -5,10 +5,11 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-size: cover;
+            background: linear-gradient(45deg, #003973, #e5e5be);
             color: #000000;
             margin: 0;
             padding: 0;
@@ -62,15 +63,33 @@
             margin-bottom: 20px;
         }
 
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
         .form-group label {
-            color: #000000;
-            text-align: left;
-            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            translate: 0.425rem 0.425rem;
+            color: #030104;
+            padding-inline: 0.25rem;
+            border: 2px solid transparent;
+            pointer-events: none;
+            transition: translate 250ms, background-color 250ms, border-color 250ms;
+        }
+        .form-group:focus-within label,
+        .form-group:not(:has(:placeholder-shown)) label {
+            translate : 0.625rem -1.6rem;
+        }
+        .form-group ::placeholder {
+            color: transparent;
         }
 
         .form-group input {
             border: 1px solid #ffffff;
-            background-color: #333;
+            background-color: #32abff;
             color: #ffffff;
         }
 
@@ -119,7 +138,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="#">Goldencat Bank</a>
+    <a class="navbar-brand" href="#">Lazarov Bank</a>
     <div class="ml-auto social-icons">
         <a href="https://www.youtube.com/@codewithgoldencat" target="_blank" title="YouTube">
             <i class="fab fa-youtube"></i>
@@ -130,16 +149,17 @@
     </div>
 </nav>
 
+
 <div class="container">
     <h2 class="text-center">Login</h2>
     <form method="post" action="/login">
         <div class="form-group">
-            <label>Username:</label>
-            <input type="text" class="form-control" name="username" required />
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="..." required />
         </div>
         <div class="form-group">
-            <label>Password:</label>
-            <input type="password" class="form-control" name="password" required />
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="..." required />
         </div>
         <button type="submit" class="btn btn-block">Login</button>
     </form>

@@ -7,8 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: url("../pics/5571037.jpg") no-repeat center;
-            background-size: cover;
+            background: linear-gradient(45deg, #003973, #e5e5be);
             color: #000000;
             margin: 0;
             padding: 0;
@@ -59,18 +58,36 @@
 
         .container h2 {
             color: #000000;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
         }
 
         .form-group label {
-            color: #000000;
-            text-align: left;
-            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            translate: 0.425rem 0.425rem;
+            color: #030104;
+            padding-inline: 0.25rem;
+            border: 2px solid transparent;
+            pointer-events: none;
+            transition: translate 250ms, background-color 250ms, border-color 250ms;
+        }
+        .form-group:focus-within label,
+        .form-group:not(:has(:placeholder-shown)) label {
+            translate : 0.625rem -1.6rem;
+        }
+        .form-group ::placeholder {
+            color: transparent;
         }
 
         .form-group input {
             border: 1px solid #ffffff;
-            background-color: #333;
+            background-color: #32abff;
             color: #ffffff;
         }
 
@@ -119,7 +136,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="#">Goldencat Bank</a>
+    <a class="navbar-brand" href="#">Lazarov Bank</a>
     <div class="ml-auto social-icons">
         <a href="https://www.youtube.com" target="_blank" title="YouTube">
             <i class="fab fa-youtube"></i>
@@ -134,12 +151,12 @@
     <h2 class="text-center">Register a New Account</h2>
     <form method="post" action="/register">
         <div class="form-group">
-            <label>Username:</label>
-            <input type="text" class="form-control" name="username" required />
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="..." required />
         </div>
         <div class="form-group">
-            <label>Password:</label>
-            <input type="password" class="form-control" name="password" required />
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="..." required />
         </div>
         <button type="submit" class="btn btn-block">Register</button>
     </form>
@@ -152,7 +169,7 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <p>&copy; Viktor Lazarov. Demo Project. | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
+    <p>&copy; Viktor Lazarov. Demo Project 2024 | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
     Image by <a class="custom-link" href="https://www.freepik.com/free-vector/luxurious-background-with-golden-details_15292417.htm#page=5&query=elegant%20background&position=30&from_view=keyword&track=ais_hybrid&uuid=77f28b61-d964-4a40-a8cb-86ac776022f9">Freepik</a>
 </footer>
 
