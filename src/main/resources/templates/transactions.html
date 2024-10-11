@@ -56,9 +56,6 @@
             backdrop-filter: blur(5px);
         }
 
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(0, 0, 0, 0.7); /* Slightly lighter row color */
-        }
 
         .table-striped td, .table-striped th {
             color: #ffffff; /* White text color for visibility */
@@ -67,8 +64,16 @@
             border-bottom: 1px solid #ffd700; /* Yellow border for rows */
         }
 
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly lighter row color */
+        }
+        .table-striped tbody tr:nth-child(even) td{
+            color: #000000;
+        }
+
         .table-striped th {
-            background-color: rgba(102, 232, 213, 0.8); /* Light golden background for headers */
+            background-color: rgba(102, 232, 213, 0.8); /* background for headers */
+            color: #000000;
         }
 
         .text-success {

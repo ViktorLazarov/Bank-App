@@ -127,6 +127,12 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
+        .show-pwd {
+            position: relative;
+            top: -1.7rem;
+            left: -7.2rem;
+        }
+
         @keyframes shake {
             0% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
@@ -160,6 +166,9 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" name="password" id="password" placeholder="..." required />
         </div>
+        <div class="show-pwd">
+            <input type="checkbox" name="check-pwd" id="check-pwd"> Show Password
+        </div>
         <button type="submit" class="btn btn-block">Register</button>
     </form>
     <p class="text-center mt-3">Already have an account? <a href="/login" class="custom-link">Login here</a></p>
@@ -175,5 +184,6 @@
     Image by <a class="custom-link" href="https://www.freepik.com/free-vector/luxurious-background-with-golden-details_15292417.htm#page=5&query=elegant%20background&position=30&from_view=keyword&track=ais_hybrid&uuid=77f28b61-d964-4a40-a8cb-86ac776022f9">Freepik</a>
 </footer>
 
+<script th:src="@{/static/js/app.js}"></script>
 </body>
 </html>
